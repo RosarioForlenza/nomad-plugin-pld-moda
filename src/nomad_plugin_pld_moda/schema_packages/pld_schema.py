@@ -18,7 +18,6 @@ from fabrication_facilities.schema_packages.fabrication_utilities import Fabrica
 import os 
 
 from plotly.subplots import make_subplots
-import plotly.express as px
 
 if TYPE_CHECKING:
     from nomad.datamodel.datamodel import EntryArchive
