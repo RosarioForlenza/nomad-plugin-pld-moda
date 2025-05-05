@@ -60,10 +60,9 @@ exclude = [
     "node_modules",
     "venv",
 ]
-line-length = 170
 
 # Same as Black.
-line-length = 88
+line-length = 170
 indent-width = 4
 
 
