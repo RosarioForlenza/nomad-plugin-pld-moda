@@ -330,11 +330,6 @@ class PLDProcess(FabricationProcessStep, ArchiveSection):
         },
     )
 
-    name = Quantity(
-        type=str,
-        description='Nome univoco del processo PLD',
-        a_eln={'component': 'StringEditQuantity', 'hide': True}  # Lo nascondi già nell'elenco 'hide', ma deve esistere
-
     # Main fields
     room = Quantity(
         type=MEnum(['PLD chamber I', 'PLD chamber II']),
