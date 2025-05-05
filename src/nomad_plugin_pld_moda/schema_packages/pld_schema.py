@@ -93,7 +93,7 @@ class RHEEDIntensityPlot(PlotSection, EntryData):
         a_eln={
             'component': 'NumberEditQuantity',
             'defaultDisplayUnit': 'J/(cm**2*s)',
-            'label': 'Intensity (1,1)'  # <--- Nome visualizzato nell'UI
+            'label': 'Intensity (1,1)'  # <--- Display name in UI
         },
         unit="J/(cm**2*s)",
         description="Intensity of the maximum of order (1,1)",
@@ -105,7 +105,7 @@ class RHEEDIntensityPlot(PlotSection, EntryData):
         a_eln={
             'component': 'NumberEditQuantity',
             'defaultDisplayUnit': 'J/(cm**2*s)',
-            'label': 'Intensity (0,0)'  # <--- Nome visualizzato nell'UI
+            'label': 'Intensity (0,0)'  # <--- Display name in UI
         },
         unit="J/(cm**2*s)",
         description="Intensity of the maximum of order (0,0)",
@@ -117,7 +117,7 @@ class RHEEDIntensityPlot(PlotSection, EntryData):
         a_eln={
             'component': 'NumberEditQuantity',
             'defaultDisplayUnit': 'J/(cm**2*s)',
-            'label': 'Intensity (1,-1)'  # <--- Nome visualizzato nell'UI
+            'label': 'Intensity (1,-1)'  # <--- Display name in UI
         },
         unit="J/(cm**2*s)",
         description="Intensity of the maximum of order (1,-1)",
@@ -343,7 +343,7 @@ class PLDProcess(FabricationProcessStep, ArchiveSection):
         a_eln={'component': 'StringEditQuantity'}
     )
     
-    target_material = Quantity(                                     # Forse il nome di questo campo dovrebbe essere short_name per adattarsi al vocabolario comune
+    target_material = Quantity(                                   
         type=MEnum(['LAO', 'Titanium', 'Terbium Scandate']),
         description='Select the main target material',
         a_eln={'component': 'EnumEditQuantity'}
