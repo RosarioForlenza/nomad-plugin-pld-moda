@@ -1,22 +1,15 @@
 
+import os
 from typing import TYPE_CHECKING
-import numpy as np
-import plotly.graph_objects as go
-import pandas as pd
-from nomad.datamodel.data import ArchiveSection, EntryData
-from nomad.metainfo import (
-    MEnum, 
-    Package,
-    Quantity,
-    Section,
-    SubSection,
-    Datetime
-)
-from nomad.datamodel.metainfo.annotations import ELNAnnotation
-from nomad.datamodel.metainfo.plot import PlotSection, PlotlyFigure
-from fabrication_facilities.schema_packages.fabrication_utilities import FabricationProcessStep
-import os 
 
+import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
+from fabrication_facilities.schema_packages.fabrication_utilities import FabricationProcessStep
+from nomad.datamodel.data import ArchiveSection, EntryData
+from nomad.datamodel.metainfo.annotations import ELNAnnotation
+from nomad.datamodel.metainfo.plot import PlotlyFigure, PlotSection
+from nomad.metainfo import Datetime, MEnum, Package, Quantity, Section, SubSection
 from plotly.subplots import make_subplots
 
 if TYPE_CHECKING:
@@ -135,6 +128,8 @@ class RHEEDIntensityPlot(PlotSection, EntryData):
         """
         Optimized method to load and process large datasets from the CSV file.
         """
+        MAX_DATA_POINTS = 50000 #Threshold beyond which to perform subsampling
+        
         if self.data_file:
             try:
                 # Get the absolute path of the file
@@ -166,8 +161,8 @@ class RHEEDIntensityPlot(PlotSection, EntryData):
                         return
 
                 n_points = len(df)
-                if n_points > 50000:
-                    step = n_points // 50000 + 1
+                if n_points > MAX_DATA_POINTS:
+                    step = n_points // MAX_DATA_POINTS + 1
                     logger.info(f"Large dataset ({n_points} points). Subsampling with step {step}")
                     df = df.iloc[::step]
 

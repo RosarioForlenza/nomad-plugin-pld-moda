@@ -1,5 +1,6 @@
 from nomad.config.models.plugins import SchemaPackageEntryPoint
 
+
 class pld_schemaEntryPoint(SchemaPackageEntryPoint):
     def load(self):
         from nomad_plugin_pld_moda.schema_packages.pld_schema import m_package
