@@ -111,7 +111,7 @@ where = ["src"]
 
 [project.entry-points.'nomad.plugin']
 parser_entry_point = "nomad_plugin_pld_moda.parsers:parser_entry_point"
-schema_package_entry_point = "nomad_plugin_pld_moda.schema_packages:schema_package_entry_point"
+pld_schema_entry_point = "nomad_plugin_pld_moda.schema_packages:pld_schema_entry_point"
 normalizer_entry_point = "nomad_plugin_pld_moda.normalizers:normalizer_entry_point"
 app_entry_point = "nomad_plugin_pld_moda.apps:app_entry_point"
 
